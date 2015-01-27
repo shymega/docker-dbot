@@ -1,18 +1,14 @@
 A Dockerfile for [dbot](http://github.com/reality/dbot)
 ======================================================
 
-What *are* Dockerfiles?
-=======================
-
-Docker is a virtualisation platform - I'm *not* the best person to explain this. You have images and containers. Deploy a image to a container, and commit changes to a new image. Done (Approximate description, don't hurt me!)
-
-Dockerfiles are what you use to *build* your images. In this case, I've used a nodejs base image to put dbot into a image.
-
 How do I use docker-dbot?
 =========================
 
-Just run ./install from the repo folder and the script will sort out the whole process for you. :-))
+1. Configure config.json to your needs - this will be baked in to the final image.
+2. Run 'docker build -t dbot .' (without the quotes) to build your image. You can provide a tag to the command as defined in the Docker documentation.
+3. Run your dbot image with the following command: 'docker run -d dbot' - the dbot process in the image will use the config.json you configured earlier.
 
+Happy dbot'ing!
 
 License
 =======
@@ -27,7 +23,6 @@ Contributing
 Want to contribute? Fork this repo and submit a pull request. I'm always happy to read through any ideas and improvements you have to make for my projects. 
 
 Bear in mind though, I am quite busy with education, so I'll try and sort out your issues quickly, but it could be a while!
-
 
 Happy coding,
 shymega
