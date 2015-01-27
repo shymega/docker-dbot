@@ -5,7 +5,7 @@ How do I use docker-dbot?
 =========================
 
 1. Configure config.json to your needs - this will be baked in to the final image.
-2. Run 'docker build -t dbot .' (without the quotes) to build your image. You can provide a tag to the command as defined in the Docker documentation.
+2. Run 'docker build -t dbot .' (without the quotes) to build your image. You can use a different name if you wish, just make sure to use that for the next command below.
 3. Run your dbot image with the following command: 'docker run -d dbot' - the dbot process in the image will use the config.json you configured earlier.
 
 Happy dbot'ing!
