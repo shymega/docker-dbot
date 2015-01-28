@@ -4,7 +4,7 @@
 ###############################
 
 # Set base image
-FROM debian:latest
+FROM debian:stable
 
 # Who made this? I did!
 MAINTAINER shymega <shymega@shymega.org.uk>
