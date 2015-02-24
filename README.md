@@ -4,9 +4,9 @@ A Dockerfile for [dbot](http://github.com/reality/dbot)
 How do I use docker-dbot?
 =========================
 
-1. Configure config.json to your needs - this will be baked in to the final image.
+1. Configure either the config.json included in this repo, or the dbot repo.
 2. Run 'docker build -t dbot .' (without the quotes) to build your image. You can use a different name if you wish, just make sure to use that for the next command below.
-3. Run your dbot image with the following command: 'docker run -d dbot' - the dbot process in the image will use the config.json you configured earlier.
+3. Run your docker-dbot image with the command: 'docker run -d -v /path/to/config.json:/home/dbot/dbot/config.json dbot' - This will use a volume in the container for the config.json you configured earlier.
 
 Happy dbot'ing!
 
