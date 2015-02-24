@@ -21,9 +21,6 @@ WORKDIR /home/dbot/dbot
 # I've exported EDITOR to echo so vim isn't run, as Docker seems to break vim in build-process.
 RUN export EDITOR=/bin/echo && /home/dbot/dbot/install
 
-## Add config manually, this can be updated per image-rebuild.
-ADD ./config.json /home/dbot/dbot/config.json
-
 ## Add run script
 ADD ./run.sh /run.sh
 
