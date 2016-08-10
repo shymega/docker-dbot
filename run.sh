@@ -1,6 +1,8 @@
 #!/bin/bash
-# start redis-server
+
+# Start Redis
 service redis-server start
-# start dbot under dbot user
+
+# start dbot
 su -c "node /home/dbot/dbot/run.js" dbot
 
