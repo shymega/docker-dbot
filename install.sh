@@ -21,6 +21,7 @@ echo "Clone dbot into dbot home.."
 git clone https://github.com/reality/dbot.git /home/dbot/dbot
 
 echo "Install dbot.."
+
 # Set EDITOR variable to /bin/false - this should prevent dbot's
 # install script opening vim to edit the configuration file.
 # For the record, we inject the configuration from the host.
