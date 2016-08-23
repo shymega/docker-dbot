@@ -1,0 +1,10 @@
+#!/bin/bash
+
+echo "Building image.."
+docker build -t shymega/docker-dbot .
+
+echo "Running image.."
+docker run -d shymega/docker-dbot
+
+echo "Checking for container.."
+docker ps | grep -q dbot
