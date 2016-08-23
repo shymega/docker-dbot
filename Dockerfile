@@ -28,7 +28,7 @@ RUN chown -R dbot:dbot /home/dbot
 ## Add run script
 ADD ./run.sh /run.sh
 
-# Set runtime user as root.
+# Set runtime user as dbot.
 USER dbot
 
 # Set entrypoint to /run.sh
