@@ -23,7 +23,7 @@ RUN git clone git://github.com/reality/dbot.git /home/dbot/dbot
 RUN EDITOR=/bin/true /home/dbot/dbot/install
 
 # Set perms to dbot user
-RUn chown -R dbot:dbot /home/dbot
+RUN chown -R dbot:dbot /home/dbot
 
 ## Add run script
 ADD ./run.sh /run.sh
