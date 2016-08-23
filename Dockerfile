@@ -32,4 +32,4 @@ ADD ./run.sh /run.sh
 USER dbot
 
 # Set entrypoint to /run.sh
-CMD ["su", "-c", "node /home/dbot/dbot/run.js", "dbot"]
+CMD ["node", "/home/dbot/dbot/run.js"]
