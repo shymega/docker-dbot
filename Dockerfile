@@ -14,7 +14,7 @@ RUN add-apt-repository ppa:chris-lea/node.js
 RUN apt-get -yq update && apt-get -yq install nodejs unzip git curl redis-server
 
 # Create account for dbot
-RUN useradd -m dbot -s /bin/nologin
+RUN useradd -rm dbot
 
 # Clone dbot
 RUN git clone git://github.com/reality/dbot.git /home/dbot/dbot
