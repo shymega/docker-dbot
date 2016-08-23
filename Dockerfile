@@ -8,19 +8,10 @@ FROM ubuntu:16.04
 # Set maintainer.
 MAINTAINER shymega <shymega@shymega.org.uk>
 
-# Update aptitude
-RUN apt-get -yq update
-
-# Install utils
-RUN apt-get -yq install unzip git curl
-
-# Install Node
+# Prepare for Node.js install
 RUN add-apt-repository ppa:chris-lea/node.js
-RUN apt-get -yq update
-RUN apt-get -yq install nodejs
-
-# Install Redis
-RUN apt-get -yq install redis-server
+# Update aptitude and install pkgs
+RUN apt-get -yq update && apt-get -yq install nodejs unzip git curl redis-server
 
 # Create account for dbot
 RUN useradd -m dbot -s /bin/nologin
