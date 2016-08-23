@@ -3,7 +3,7 @@
 ################################
 
 # Set base image
-FROM ubuntu
+FROM ubuntu:16.04
 
 # Set maintainer.
 MAINTAINER shymega <shymega@shymega.org.uk>
