@@ -20,8 +20,7 @@ RUN useradd -rm dbot
 RUN git clone git://github.com/reality/dbot.git /home/dbot/dbot
 
 # Install dbot
-ENV editor /bin/false
-RUN /home/dbot/dbot/install
+RUN EDITOR=/bin/true /home/dbot/dbot/install
 
 # Set perms to dbot user
 RUn chown -R dbot:dbot /home/dbot
