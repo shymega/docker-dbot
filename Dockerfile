@@ -9,7 +9,7 @@ FROM ubuntu:16.04
 MAINTAINER shymega <shymega@shymega.org.uk>
 
 # Prepare for Node.js install
-RUN add-apt-repository ppa:chris-lea/node.js
+RUN curl -sL https://deb.nodesource.com/setup_6.x | bash -
 # Update aptitude and install pkgs
 RUN apt-get -yq update && apt-get -yq install nodejs unzip git curl redis-server
 
