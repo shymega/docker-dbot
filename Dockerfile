@@ -22,6 +22,7 @@ RUN useradd -rm dbot
 RUN git clone git://github.com/reality/dbot.git /home/dbot/dbot
 
 # Install dbot
+WORKDIR /home/dbot/dbot
 RUN EDITOR=/bin/true /home/dbot/dbot/install
 
 # Set perms to dbot user
