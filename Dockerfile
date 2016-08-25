@@ -28,9 +28,6 @@ RUN EDITOR=/bin/true /home/dbot/dbot/install
 # Set perms to dbot user
 RUN chown -R dbot:dbot /home/dbot
 
-## Add run script
-ADD ./run.sh /run.sh
-
 # Set runtime user as dbot.
 USER dbot
 
