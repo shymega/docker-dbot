@@ -19,18 +19,15 @@ RUN apt-get -yq install nodejs unzip git redis-server wget
 # Create account for dbot
 RUN useradd -rm dbot
 
+# Set user to dbot
+USER dbot
+
 # Clone dbot
 RUN git clone git://github.com/reality/dbot.git /home/dbot/dbot
 
 # Install dbot
 WORKDIR /home/dbot/dbot
 RUN EDITOR=/bin/true /home/dbot/dbot/install
-
-# Set perms to dbot user
-RUN chown -R dbot:dbot /home/dbot
-
-# Set runtime user as dbot.
-USER dbot
 
 # Set entrypoint to /run.sh
 CMD ["node", "/home/dbot/dbot/run.js"]
