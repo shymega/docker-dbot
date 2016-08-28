@@ -9,13 +9,12 @@ This is a Dockerfile for the dbot IRC bot.
    repo.
 
 - Run `docker build -t dbot .` to build your image. You can use a
-   different name if you wish, just make sure to use that for the next
-   command below.
+   different name if you wish, just make sure to use that later on.
 
-3 Run your docker-dbot image with the command: `docker run -d -v
-   /path/to/config.json:/home/dbot/dbot/config.json dbot` - This will
-   use a volume in the container for the config.json you configured
-   earlier.
+3 Run your docker-dbot image with the command:
+  `docker run -d -v /path/to/config.json:/docker/dbot/config.json dbot`.
+  This will use a volume in the container for the config.json you
+  configured earlier.
 
 Happy dbot'ing!
 
