@@ -3,31 +3,37 @@
 ################################
 
 # Set base image
-FROM ubuntu:16.04
+FROM alpine:3.4
 
 # Set maintainer.
 MAINTAINER shymega <shymega@shymega.org.uk>
 
-# Prepare for Node.js install
-ADD https://deb.nodesource.com/setup_6.x /setup_6.x
-RUN bash /setup_6.x
+# Node.js install.
+# Update packages and install.
+RUN apk add --update nodejs redis git wget unzip bash
 
-# Update aptitude and install pkgs
-RUN apt-get -yq update
-RUN apt-get -yq install nodejs unzip git redis-server wget
+# Create docker container user.
+ENV USERNAME docker
+RUN addgroup -S "$USERNAME" \
+    && adduser -S "$USERNAME" -h /docker \
+    && adduser "$USERNAME" "$USERNAME"
 
-# Create account for dbot
-RUN useradd -rm dbot
+# Set user for the installation
+USER "$USERNAME"
 
-# Set user to dbot
-USER dbot
+# Clone dbot into /docker/dbot
+RUN git clone https://github.com/reality/dbot.git /docker/dbot
 
-# Clone dbot
-RUN git clone git://github.com/reality/dbot.git /home/dbot/dbot
+# Install dbot using the provided script.
+WORKDIR /docker/dbot
+RUN EDITOR=/bin/true /docker/dbot/install
 
-# Install dbot
-WORKDIR /home/dbot/dbot
-RUN EDITOR=/bin/true /home/dbot/dbot/install
+# Set user back to root to cleanup
+USER root
+RUN apk del --no-cache --rdepends git py-pip g++ make
 
-# Set entrypoint to /run.sh
-CMD ["node", "/home/dbot/dbot/run.js"]
+# Set user back to docker use for runtime execution
+USER "$USERNAME"
+
+# Set runtime command.
+CMD ["node", "/docker/dbot/run.js"]
