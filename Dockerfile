@@ -2,33 +2,36 @@
 # Dockerfile for depressionbot #
 ################################
 
-# Set base image
-FROM alpine:3.4
+# Set base image (Alpine latest)
+FROM alpine:latest
 
 # Set maintainer.
-MAINTAINER shymega <shymega@shymega.org.uk>
+MAINTAINER Dom Rodriguez <shymega@shymega.org.uk>
 
-# Node.js install.
-# Update packages and install.
-RUN apk add --update nodejs redis git wget unzip bash
+# Phase 0 - package installation
+RUN apk add --update nodejs nodejs-npm redis git wget unzip bash
 
-# Create docker container user.
+# Phase 1 - create Docker user
 ENV USERNAME docker
 RUN addgroup -S "$USERNAME" \
     && adduser -S "$USERNAME" -h /docker \
     && adduser "$USERNAME" "$USERNAME"
 
-# Set user for the installation
+  # Set user for the installation
 USER "$USERNAME"
 
-# Clone dbot into /docker/dbot
+
+# Phase 2 - setup dbot.
+  # Clone dbot into /docker/dbot
 RUN git clone https://github.com/reality/dbot.git /docker/dbot
 
-# Install dbot using the provided script.
+  # Install dbot using the provided script.
 WORKDIR /docker/dbot
 RUN EDITOR=/bin/true /docker/dbot/install
 
-# Set user back to root to cleanup
+# Phase 3 - cleanup.
+
+  # Set user back to root to cleanup
 USER root
 RUN apk del --no-cache --rdepends git py-pip g++ make
 
