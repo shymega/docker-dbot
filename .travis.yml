@@ -3,8 +3,8 @@ sudo: required
 services:
   - docker
 
-before_install:
+script:
   - docker build -t shymega/docker-dbot .
   - docker run -d shymega/docker-dbot
   - docker ps | grep -q dbot
-  
+  - echo "Testing finished."
