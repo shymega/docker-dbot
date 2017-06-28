@@ -2,8 +2,8 @@
 # Dockerfile for depressionbot #
 ################################
 
-# Set base image (Alpine latest)
-FROM alpine:latest
+# Set base image (Alpine v3.6)
+FROM alpine:3.6
 
 # Set maintainer.
 MAINTAINER Dom Rodriguez <shymega@shymega.org.uk>
