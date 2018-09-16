@@ -3,6 +3,13 @@ Dockerfile for the marvellous dbot
 
 This is a Dockerfile for the dbot IRC bot.
 
+## Status
+
+This project is currently suspended. I've updated it as of Sept 2018 to keep it
+up to date and to make the image smaller.
+
+As of now however, this repository will be marked as archived.
+
 ## Usage
 
 - Configure either the config.json included in this repo, or the dbot
