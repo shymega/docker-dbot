@@ -29,7 +29,7 @@ Happy dbot'ing!
 
 docker-dbot is licensed under the same license as dbot - GNU GPLv3
 
-See LICENCE
+See [LICENCE](/LICENSE)
 
 ## Contributing
 
